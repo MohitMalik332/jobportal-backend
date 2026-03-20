@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mohit.jobportal.dto.LoginRequestDTO;
 import com.mohit.jobportal.dto.RegisterRequestDTO;
 import com.mohit.jobportal.dto.UserResponseDTO;
 import com.mohit.jobportal.service.UserService;
@@ -22,4 +23,29 @@ public class AuthController {
 		
 		return userService.registerUser(request);
 	}
+	
+	
+	@PostMapping("/login")
+	public String loginUser(@RequestBody LoginRequestDTO request) {
+		return userService.loginUser(request);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
