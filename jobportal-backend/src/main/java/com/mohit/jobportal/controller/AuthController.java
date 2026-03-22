@@ -37,6 +37,16 @@ public class AuthController {
 	    return "JWT is working!";
 	}
 	
+	@GetMapping("/admin/test")
+	public String adminTest() {
+	    return "Admin API";
+	}
+
+	@GetMapping("/user/test")
+	public String userTest() {
+	    return "User API";
+	}
+	
 	
 	
 	
