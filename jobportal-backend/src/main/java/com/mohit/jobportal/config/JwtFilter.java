@@ -30,15 +30,21 @@ public class JwtFilter extends OncePerRequestFilter {
 		System.out.println("JWT FILTER CALLED");
 		
 		String authHeader = request.getHeader("Authorization");
+		System.out.println("AUTH HEADER: " + authHeader);
 		
 		if (authHeader != null && authHeader.startsWith("Bearer ")) {
 			
 			String token = authHeader.substring(7);
+			System.out.println("TOKEN: " + token);
 			
 			try {
 				String email = jwtUtil.extractEmail(token);
+				System.out.println("EMAIL FROM TOKEN: " + email);
 				
-				if (email != null && jwtUtil.validateToken(token)) {
+				boolean isValid = jwtUtil.validateToken(token);
+			    System.out.println("IS TOKEN VALID: " + isValid);
+				
+				if (email != null && isValid) {
 					
 					String role = jwtUtil.extractRole(token);
 					System.out.println("ROLE FROM TOKEN: " + role);
