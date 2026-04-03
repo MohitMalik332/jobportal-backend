@@ -5,8 +5,17 @@ public class RegisterRequestDTO {
     private String fullName;
     private String email;
     private String password;
+    private String role;
 
-    public RegisterRequestDTO() {}
+    public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public RegisterRequestDTO() {}
 
     public String getFullName() {
         return fullName;

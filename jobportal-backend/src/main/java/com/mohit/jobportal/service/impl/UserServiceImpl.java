@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     public UserResponseDTO registerUser(RegisterRequestDTO request) {
 
         // Fetch default role
-        Role role = roleRepository.findByName("ROLE_USER")
+        Role role = roleRepository.findByName(request.getRole())
                 .orElseThrow(() -> new RuntimeException("Role not found"));
 
         // Create User Entity
