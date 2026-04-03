@@ -1,9 +1,9 @@
 package com.mohit.jobportal.service.impl;
 
-import java.util.Optional;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.mohit.jobportal.entity.Job;
@@ -32,22 +32,12 @@ public class JobServiceImpl implements JobService{
 		
 		return jobRepository.save(job);
 	}
+	
+	
+	@Override
+	public List<Job> getAllJobs() {
+		return jobRepository.findAll();
+	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

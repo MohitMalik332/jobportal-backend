@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.mohit.jobportal.config.JwtUtil;
 import com.mohit.jobportal.dto.LoginRequestDTO;
+import com.mohit.jobportal.dto.LoginResponseDTO;
 import com.mohit.jobportal.dto.RegisterRequestDTO;
 import com.mohit.jobportal.dto.UserResponseDTO;
 import com.mohit.jobportal.entity.Role;
@@ -58,7 +59,7 @@ public class UserServiceImpl implements UserService {
     }
     
     
-    public String loginUser(LoginRequestDTO request) {
+    public LoginResponseDTO loginUser(LoginRequestDTO request) {
     	
     	User user = userRepository.findByEmail(request.getEmail())
     			.orElseThrow(() -> new RuntimeException("User Not Found"));
@@ -69,7 +70,9 @@ public class UserServiceImpl implements UserService {
     	}
     	
     	// Generate JWT
-    	return jwtUtil.generateToken(user.getEmail(), user.getRole().getName());
+    	String token = jwtUtil.generateToken(user.getEmail(), user.getRole().getName());
+    	
+    	return new LoginResponseDTO(token, user.getRole().getName());
     }
     
     
