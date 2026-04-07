@@ -39,5 +39,16 @@ public class JobServiceImpl implements JobService{
 		return jobRepository.findAll();
 	}
 
+
+	@Override
+	public List<Job> getJobsByRecruiter(String email) {
+		User user = userRepository.findByEmail(email)
+				.orElseThrow(() -> new RuntimeException("User Not found.."));
+		
+		return jobRepository.findByUser(user);
+	}
+	
+	
+
 	
 }

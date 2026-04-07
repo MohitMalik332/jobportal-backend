@@ -13,7 +13,7 @@ import com.mohit.jobportal.entity.JobApplication;
 import com.mohit.jobportal.service.JobApplicationService;
 
 @RestController
-@RequestMapping("/applications")
+@RequestMapping("/api/applications")
 public class JobApplicationController {
 	
 	@Autowired

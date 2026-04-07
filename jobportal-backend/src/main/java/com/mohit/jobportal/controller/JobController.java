@@ -34,4 +34,11 @@ public class JobController {
 	public List<Job> getAllJobs() {
 		return jobService.getAllJobs();
 	}
+	
+	@GetMapping("/recruiter/my")
+	public List<Job> getMyJobs(Authentication authentication){
+		String email = authentication.getName();
+		
+		return jobService.getJobsByRecruiter(email);
+	}
 }

@@ -9,4 +9,6 @@ public interface JobService {
 	Job createJob(Job job, String email);
 	
 	List<Job> getAllJobs();
+	
+	List<Job> getJobsByRecruiter(String email);
 }
