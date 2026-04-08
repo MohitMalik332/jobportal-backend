@@ -51,6 +51,7 @@ public class JobApplicationService {
 		application.setUser(user);
         application.setJob(job);
         application.setAppliedDate(LocalDateTime.now());
+        application.setStatus("PENDING");
 
         applicationRepository.save(application);
 

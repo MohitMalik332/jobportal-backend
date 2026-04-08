@@ -30,6 +30,8 @@ public class JobApplication {
 	
 	private LocalDateTime appliedDate;
 	
+	private String status;
+	
 	public Long getId() {
         return id;
     }
@@ -56,5 +58,13 @@ public class JobApplication {
 
     public void setAppliedDate(LocalDateTime appliedDate) {
         this.appliedDate = appliedDate;
+    }
+    
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
